@@ -2,6 +2,10 @@
 @section('content')
 @include('navbar')
 
+{{-- <div class="position-relative offset-8 sub" style="transform: translateY(-60px);">
+    <button class="btn btn-success"><a href="/eventproposal" style="color:white; text-decoration: none">Submit a Proposal</a></button>
+</div> --}}
+
 <div class="container">
     <h1 class="mt-5">this is the event page</h1>
     <div id='calendar'></div>
@@ -51,7 +55,7 @@
                     })
                 }
             },
-            editable:true,
+            editable:false,
             eventResize: function(event, delta)
             {
                 var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -106,7 +110,7 @@
             },
             eventClick:function(event)
             {
-                if(confirm("Are you sure you want to remove it?"))
+                // if(confirm("Are you sure you want to remove it?"))
                 {
                     var id = event.id;
                     $.ajax({
@@ -115,14 +119,14 @@
                         headers:{
                             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
                         },
-                        data:{
-                            id:id,
-                            type:"delete"
-                        },
-                        success:function(response){
-                            calendar.fullCalendar('refetchEvents');
-                            alert("Event deleted");
-                        }
+                        // data:{
+                        //     id:id,
+                        //     type:"delete"
+                        // },
+                        // success:function(response){
+                        //     calendar.fullCalendar('refetchEvents');
+                        //     alert("Event deleted");
+                        // }
                     })
                 }
             }
@@ -130,5 +134,6 @@
     });
     </script>
 </html>
+
 
 @endsection 

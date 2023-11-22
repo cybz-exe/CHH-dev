@@ -1,5 +1,8 @@
-@extends('layout')
+@extends('adminlayout')
+
+@include('adminnavbar')
 @section('content')
+@include('adminsidebar')
 
     <div class="container">
         <h1>Laravel Calender Event Tutorial - Laravelia</h1>
@@ -14,7 +17,7 @@
                 center:'title',
                 right:'month,agendaWeek,agendaDay'
             },
-            events:'/adminevent',
+            events:'/event',
             selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)

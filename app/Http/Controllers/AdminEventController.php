@@ -10,7 +10,7 @@ class AdminEventController extends Controller
     public function adminevent(Request $request)
     {
         if ($request->ajax()) {
-            $data =AdminEvent::whereDate('start', '>=', $request->start)
+            $data = AdminEvent::whereDate('start', '>=', $request->start)
                 ->whereDate('end',   '<=', $request->end)
                 ->get(['id', 'title', 'start', 'end']);
 
