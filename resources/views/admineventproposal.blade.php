@@ -4,7 +4,7 @@
 @section('content')
 @include('adminsidebar')
 <div class="container">
-<table class="table">
+<table class="table" id="proposalTable">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -23,12 +23,12 @@
             <td>{{ $proposal->created_at }}</td>
             <td>
                 <div class="buttons d-flex flex-row">
-                    <a href="{{ route('update', ['album' => $album]) }}" class="btn btn-success btn-sm me-3" role="button">Update</a>
+                    {{-- <a href="{{ route('update', ['album' => $album]) }}" class="btn btn-success btn-sm me-3" role="button">Update</a> --}}
                     <form method="post" action="{{ route('deleteProposal', ['proposal' => $proposal]) }}">
                         @csrf
                         @method('delete')
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-                        <a href="{{ route('deleteAlbum', ['album' => $album]) }}" class="btn btn-danger btn-sm" role="button">Delete</a>
+                        {{-- <a href="{{ route('deleteAlbum', ['album' => $album]) }}" class="btn btn-danger btn-sm" role="button">Delete</a> --}}
                     </form>
                 </div>
             </td>
@@ -37,4 +37,11 @@
     </tbody>
   </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            let table = new DataTable('#proposalTable');
+</script>
 @endsection

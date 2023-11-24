@@ -12,16 +12,12 @@ class AdminAnnouncementController extends Controller
 
         $data = Announcement::all();
         return view('adminannouncement', compact('data'));
-        // $announcement = Announcement::all();
-
-        // return view('adminannouncement', ['data' => $announcement]);
     }
 
 
     public function addadminannouncement(Request $request)
     {
         $data = [
-            //db_column_name => $request->name;
             'file_name' => $request->file_name,
             'date' => $request->date,
         ];

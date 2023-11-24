@@ -60,7 +60,6 @@ Route::delete('/admineventproposal/{proposal}/delete', [EventProposalController:
 
 
 
-
 Route::get('/adminhomepage', [AdminHomePageController::class, 'adminhomepage']);
 Route::get('/adminannouncement', [AdminAnnouncementController::class, 'adminannouncement']);
 Route::get('/adminmemberupdate', [AdminMemberUpdateController::class, 'adminmemberupdate']);
@@ -76,6 +75,8 @@ Route::post('/add', [AlbumListController::class, 'addAlbum'])->name('addAlbum');
 Route::get('/album/{album}/update', [AlbumListController::class, 'update'])->name('update');
 Route::put('/album/{album}/edit', [AlbumListController::class, 'updateAlbum'])->name('updateAlbum');
 Route::delete('/album/{album}/delete', [AlbumListController::class, 'deleteAlbum'])->name('deleteAlbum');
+//image upload
+Route::post('/upload-image', [AlbumListController::class, 'uploadImage'])->name('uploadImage');
 
 //announcement
 // Route::controller(AdminAnnouncementController::class)->group(function () {
@@ -88,11 +89,15 @@ Route::post('/adminannouncement', [AdminAnnouncementController::class, 'addadmin
 Route::get('/announcementupload', [AnnouncementUploadController::class, 'announcementupload'])->name('announcementupload');
 Route::get('/adminannouncement', [AdminAnnouncementController::class, 'adminannouncement'])->name('adminannouncement');
 //download
+
+Route::get('/download/{file_name}', [DownloadController::class, 'download'])->name('download');
+Route::post('/announcementupload', [DownloadController::class, 'store'])->name('store');
+
 // Route::get('/download/{file}', [DownloadController::class, 'download'])->name('download');
-Route::get('/download/{file}', [DownloadController::class, 'download']);
-Route::get('/upload', [DownloadController::class, 'showForm'])->name('upload');
-Route::post('/upload', [DownloadController::class, 'uploadFile'])->name('upload');
-Route::get('/download-announcement/{announcement}', 'AnnouncementController@download')->name('downloadAnnouncement');
+// Route::get('/download/{file}', [DownloadController::class, 'download']);
+// Route::get('/upload', [DownloadController::class, 'showForm'])->name('upload');
+// Route::post('/upload', [DownloadController::class, 'uploadFile'])->name('upload');
+// Route::get('/download-announcement/{announcement}', 'AnnouncementController@download')->name('downloadAnnouncement');
 
 
 //search

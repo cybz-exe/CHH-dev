@@ -72,7 +72,6 @@ div.content {
   <a href="/adminhomepage">Members</a>
   <a href="/adminannouncement">Announcements</a>
   <a href="/adminevent">Events</a>
-  <a href="#about">About</a>
   </div>
 </div>
 

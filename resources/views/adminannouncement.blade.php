@@ -8,7 +8,7 @@
   {{-- <form method="POST" action="{{ route('addadminannouncement') }}">
     @csrf
     @method('post') --}}
-<table class="table">
+<table class="table" id="announcementTable">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -21,12 +21,15 @@
       @foreach ($data as $announcement)
       <tr class="">
           <th scope="row">{{ $announcement->id }}</th>
-          <td>{{ $announcement->file_name }}</td>
+          <td> {{ $announcement->file_name }}</td>
           <td>{{ $announcement->date }}</td>
           <td>
-              <div class="buttons d-flex flex-row">
-                {{-- <a href="{{ url('upload', $announcement->file) }}" class="btn btn-success me-3">Download</a> --}}
-                <a href="{{ url('download', $announcement->file) }}" class="btn btn-success me-3">Download</a>
+              <div class="buttons d-flex flex-row gap-3">
+                <div style="text-decoration: none; color: white;">
+                  <button type="button" class="btn btn-success btn-sm">
+                      <a href="{{ url('download', $announcement->file_name) }}" download style="color: white; text-decoration: none;">Download</a>
+                  </button>
+              </div>
             <form method="POST" action="{{ route('deleteAnnouncement', ['announcement' => $announcement]) }}">
             @csrf
             @method('delete')
@@ -41,5 +44,12 @@
 
   <a href="/announcementupload">Upload</a>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            let table = new DataTable('#announcementTable');
+</script>
 {{-- </form> --}}
 @endsection 

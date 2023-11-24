@@ -22,5 +22,6 @@ class Register extends Model
         'emergency_name',
         'emergency_contact',
         'relationship',
+        'image'
     ];
 }

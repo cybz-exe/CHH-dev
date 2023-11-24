@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('emergency_name');
             $table->string('emergency_contact', 11)->nullable()->default(0);
             $table->string('relationship');
+            $table->string('image');
 
             $table->timestamps();
         });

@@ -9,11 +9,10 @@
           <form method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <x-responsive-nav-link :href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                <button class="btn btn-outline-danger"><a>LOGOUT</a></button>
-            </x-responsive-nav-link>
+              <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                  <button class="btn btn-outline-danger fw-bold">Logout  <i class="fa-solid fa-right-from-bracket"></i></button>
+              </x-responsive-nav-link>
+              
         </form>
           {{-- <button class="btn btn-outline-danger" role="link">
             <a href="/admin" class="nav-link">Log-out</a>
@@ -70,10 +69,11 @@
         }
         </style>
     </nav>
-    <div class="container">
-    @if(request()->is('adminevent'))
-        <button class="btn btn-primary offset-10"><a href="/admineventproposal" style="text-decoration: none; color:white">Proposed Events</a></button>
-    @endif
+    <div class="container mb-5">
+      @if(request()->is('adminevent'))
+          <button class="btn btn-primary float-end"><a href="/admineventproposal" style="text-decoration: none; color:white">Proposed Events</a></button>
+      @endif
   </div>
+  
   
   

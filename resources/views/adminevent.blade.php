@@ -5,7 +5,9 @@
 @include('adminsidebar')
 
     <div class="container">
-        <h1>Laravel Calender Event Tutorial - Laravelia</h1>
+        <div class="my-5">
+        <h1>Calendar of Events</h1>
+    </div>
         <div id='calendar'></div>
     </div>
     <script>

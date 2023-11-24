@@ -3,14 +3,14 @@
     @include('adminnavbar')
     @include('adminsidebar')
         <div class="container">
-            <form method="GET" action="{{ route('search') }}" class=" col-md-3 offset-9 my-3">
+            {{-- <form method="GET" action="{{ route('search') }}" class=" col-md-3 offset-9 my-3">
                 @csrf
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search..." name="search">
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </div>
-            </form>
-            <table class="table table-hover table-responsive mt-3">
+            </form> --}}
+            <table class="table table-hover table-responsive mt-3" id="memberTable">
                 <thead class="">
                     <tr>
                         <th scope="col">ID</th>
@@ -52,4 +52,10 @@
         </button> --}}
 
         </div>
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+            let table = new DataTable('#memberTable');
+</script>
 @endsection

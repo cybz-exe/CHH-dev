@@ -5,7 +5,7 @@
     <div class="d-flex container p-4 mt-4" style="background-color: rgba(119, 119, 119, 0.1)">
         <div class="col-3">
             <div class="card" style="width: 18rem;">
-                <img id="imagePlaceholder" src="https://via.placeholder.com/300" alt="Image Placeholder">
+                <img id="imagePlaceholder" src="{{ asset('images/' . $album->image_filename) }}" alt="Image Placeholder">
                 <div class="card-body">
                     <p class="card-text d-flex flex-column">
                         {{-- <button type="button" class="btn btn-primary">Update Info</button> --}}

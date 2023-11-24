@@ -48,7 +48,7 @@ class EventProposalController extends Controller
     {
         
         $proposal->delete();
-        return view ('admineventproposal');
+        return redirect()->route('admineventproposal')->with('success', 'Proposal deleted successfully');
     }
     
 

@@ -4,19 +4,29 @@
     <div class="container mt-3">
             <h1>Edit Profile</h1>
 
-        <form method="POST" action="{{ route('updateAlbum', ['album' => $album]) }}">
+        <form method="POST" action="{{ route('updateAlbum', ['album' => $album]) }}" enctype="multipart/form-data">
             @csrf
             @method('put')
 
             {{-- <h3 class="mt-5" style="font-weight: bold">Registration Form</h3>  --}}
 
-            <div class="row g-3">
+            <div class="row">
                 <div class="col-md-7 mt-3">
                     <label for="inputEmail4" class="form-label">Name</label>
                     <input type="text" class="form-control" id="albumTitle" name="name" value="{{ $album->name }}">
                 </div>
+
+                <div class="col-md-5 mt-5">
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="inputGroupFile02" name="image" accept="image/*" value="{{ $album->image }}">
+                        <label class="input-group-text" for="inputGroupFile02" >Upload</label>
+                    </div>
+                    {{-- <label for="inputEmail4" class="form-label">Image</label>
+                    <input type="file" name="image" accept="image/*" value="{{ $album->image }}"> --}}
+                </div>
+            </div>
             
-                <div class="col-md-7">
+                <div class="col-md-7 ">
                     <label for="inputPassword4" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="inputPassword4" name="last_name" value="{{ $album->last_name }}">
                 </div>
@@ -107,7 +117,9 @@
                             <a href="{{ url('album_list') }}" class="btn btn-primary">Submit</a>
                         </button> --}}
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="submit" class="btn btn-primary">Cancel</button>
+                        <button class="btn btn-danger">
+                            <a href="/adminhomepage" style="text-decoration: none; color: white;">Cancel</a>
+                        </button>
                     </div>
                 </div>
             </div>
