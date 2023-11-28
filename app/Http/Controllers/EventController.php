@@ -17,7 +17,7 @@ class EventController extends Controller
             return response()->json($data);
         }
 
-        return view('event');
+        return view('pages.member.event');
     }
 
     public function store(Request $request)

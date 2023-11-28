@@ -6,7 +6,7 @@
               <img src="{{ URL('images/CHH logo.png') }}" alt="logo" style="width: 4rem" class="pic">
           </div>
           <div class="col">
-              <a class="navbar-brand h2 comms" href="#">Community Helping Hand</a>
+              <a class="navbar-brand h2 comms" href="#">Community Helping Hands</a>
           </div>
       </div>
 
@@ -20,7 +20,7 @@
     </div>
       <div class="offcanvas offcanvas-end tab" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title second" id="offcanvasNavbarLabel">Community Helping Hand</h5>
+          <h5 class="offcanvas-title second" id="offcanvasNavbarLabel">Community Helping Hands</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">

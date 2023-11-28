@@ -1,18 +1,17 @@
-@extends('layout')
+@extends('layouts.adminlayout')
+
+@include('layouts.adminnavbar')
 @section('content')
-@include('navbar')
+@include('layouts.adminsidebar')
 
-{{-- <div class="position-relative offset-8 sub" style="transform: translateY(-60px);">
-    <button class="btn btn-success"><a href="/eventproposal" style="color:white; text-decoration: none">Submit a Proposal</a></button>
-</div> --}}
-
-<div class="container">
-    <h1 class="mt-5">this is the event page</h1>
-    <div id='calendar'></div>
-
-</div>
-
-
+    <div class="container">
+        <div class="container">
+            <div class="my-5">
+            <h1 class="fw-bold pb-2">Calendar of Events</h1>
+        </div>
+            <div id='calendar'></div>
+        </div>
+    </div>
     <script>
     $(document).ready(function () {
         var calendar = $('#calendar').fullCalendar({
@@ -23,7 +22,7 @@
                 right:'month,agendaWeek,agendaDay'
             },
             events:'/event',
-            selectable:false,
+            selectable:true,
             selectHelper: true,
             select:function(start, end, allDay)
             {
@@ -55,7 +54,7 @@
                     })
                 }
             },
-            editable:false,
+            editable:true,
             eventResize: function(event, delta)
             {
                 var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -110,7 +109,7 @@
             },
             eventClick:function(event)
             {
-                // if(confirm("Are you sure you want to remove it?"))
+                if(confirm("Are you sure you want to remove it?"))
                 {
                     var id = event.id;
                     $.ajax({
@@ -119,21 +118,19 @@
                         headers:{
                             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
                         },
-                        // data:{
-                        //     id:id,
-                        //     type:"delete"
-                        // },
-                        // success:function(response){
-                        //     calendar.fullCalendar('refetchEvents');
-                        //     alert("Event deleted");
-                        // }
+                        data:{
+                            id:id,
+                            type:"delete"
+                        },
+                        success:function(response){
+                            calendar.fullCalendar('refetchEvents');
+                            alert("Event deleted");
+                        }
                     })
                 }
             }
         });
     });
     </script>
-</html>
 
-
-@endsection 
+@endsection

@@ -15,7 +15,7 @@ class AnnouncementController extends Controller
     {
 
         $data = MemberAnnouncement::all();
-        return view('announcement', compact('data'));
+        return view('pages.member.announcement', compact('data'));
         // $announcement = Announcement::all();
 
         // return view('adminannouncement', ['data' => $announcement]);

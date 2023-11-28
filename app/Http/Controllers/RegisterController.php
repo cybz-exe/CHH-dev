@@ -8,7 +8,7 @@ class RegisterController extends Controller
 {
     function register()
     {
-        return view('register');
+        return view('pages.member.register');
     }
     
 }

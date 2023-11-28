@@ -8,6 +8,6 @@ class AnnouncementUploadController extends Controller
 {
     function announcementupload()
     {
-        return view('announcementupload');
+        return view('pages.admin.announcementupload');
     }
 }

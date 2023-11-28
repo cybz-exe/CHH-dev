@@ -1,8 +1,7 @@
-@extends('adminlayout')
-
-@include('adminnavbar')
+@extends('layouts.adminlayout')
+@include('layouts.adminnavbar')
 @section('content')
-@include('adminsidebar')
+@include('layouts.adminsidebar')
 
 <h1 class="text-center mt-5">Upload Announcement</h1>
 <div class="container mt-5">

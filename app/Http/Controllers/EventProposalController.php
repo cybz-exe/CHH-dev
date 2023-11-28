@@ -11,7 +11,7 @@ class EventProposalController extends Controller
     {
         // $proposal = Proposal::all();
 
-        return view('eventproposal', ['data' => $proposal]);
+        return view('pages.member.eventproposal', ['data' => $proposal]);
     }
 
     public function addProposal(Request $request)
@@ -28,28 +28,29 @@ class EventProposalController extends Controller
         ];
 
         // var_dump($data);
-        $newAlbum = Proposal::create($data);
+        $newProposal = Proposal::create($data);
         return redirect(route('eventproposal'));
     }
 
     public function admineventproposal()
     {
 
-        return view('admineventproposal');
+        return view('pages.admin.admineventproposal');
     }
 
     public function showProposal(Proposal $proposal){
         $data = Proposal::all();
 
-        return view('admineventproposal', compact('data'));
+        return view('pages.admin.admineventproposal', compact('data'));
     }
 
     public function deleteProposal(Proposal $proposal)
-    {
-        
-        $proposal->delete();
-        return redirect()->route('admineventproposal')->with('success', 'Proposal deleted successfully');
-    }
+{
+    $proposal->delete();
+    return redirect(route('admineventproposal'));
+    
+}
+
     
 
 

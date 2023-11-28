@@ -1,13 +1,13 @@
-@extends('adminlayout')
-
-@include('adminnavbar')
+@extends('layouts.adminlayout')
+@include('layouts.adminnavbar')
 @section('content')
-@include('adminsidebar')
+@include('layouts.adminsidebar')
 
-<div class="container">
+<div class="container mt-4">
   {{-- <form method="POST" action="{{ route('addadminannouncement') }}">
     @csrf
     @method('post') --}}
+    <h1 class="fw-bold pb-2">Announcements</h1>
 <table class="table" id="announcementTable">
   <thead>
     <tr>
@@ -42,7 +42,7 @@
 </tbody>
 </table>
 
-  <a href="/announcementupload">Upload</a>
+<a href="/announcementupload" class="btn btn-primary">Upload</a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>

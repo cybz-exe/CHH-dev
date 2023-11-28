@@ -11,7 +11,7 @@ class AdminAnnouncementController extends Controller
     {
 
         $data = Announcement::all();
-        return view('adminannouncement', compact('data'));
+        return view('pages.admin.adminannouncement', compact('data'));
     }
 
 

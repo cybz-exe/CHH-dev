@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminHomePageController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AdminMemberUpdateController;
 use App\Http\Controllers\AdminMemberInfo;
-use App\Http\Controllers\AlbumListController;
+use App\Http\Controllers\MemberListController;
 use App\Http\Controllers\AnnouncementUploadController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\SearchController;
@@ -34,7 +34,7 @@ Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::get('/event', [EventController::class, 'event']);
 Route::get('/announcement', [AnnouncementController::class, 'announcement']);
-// Route::get('/adminevent', [AdminEventController::class, 'adminevent']);
+
 Route::controller(EventController::class)->group(function () {
     Route::get('/event', 'event')->name('event.get');
     Route::post('/event', 'store')->name('event.store');
@@ -51,7 +51,8 @@ Route::post('/eventproposal', [EventProposalController::class, 'addProposal'])->
 
 
 //admineventproposal
-Route::get('/admineventproposal', [EventProposalController::class, 'admineventproposal'])->name('admineventproposal');;
+Route::get('/admineventproposal', [EventProposalController::class, 'admineventproposal'])->name('admineventproposal');
+Route::post('/admineventproposal', [EventProposalController::class, 'admineventproposal'])->name('admineventproposal');
 Route::get('/admineventproposal', [EventProposalController::class, 'showProposal'])->name('showProposal');
 Route::delete('/admineventproposal/{proposal}/delete', [EventProposalController::class, 'deleteProposal'])->name('deleteProposal');
 
@@ -67,16 +68,16 @@ Route::get('/adminmemberinfo', [AdminMemberInfo::class, 'adminmemberinfo']);
 
 
 //crud
-Route::get('/album/{album}', [AlbumListController::class, 'showAlbum'])->name('showAlbum');
-Route::get('/adminhomepage', [AlbumListController::class, 'index'])->name('adminhomepage');
-Route::get('/album_list', [AlbumListController::class, 'index'])->name('index');
-Route::get('/add', [AlbumListController::class, 'add'])->name('add');
-Route::post('/add', [AlbumListController::class, 'addAlbum'])->name('addAlbum');
-Route::get('/album/{album}/update', [AlbumListController::class, 'update'])->name('update');
-Route::put('/album/{album}/edit', [AlbumListController::class, 'updateAlbum'])->name('updateAlbum');
-Route::delete('/album/{album}/delete', [AlbumListController::class, 'deleteAlbum'])->name('deleteAlbum');
+Route::get('/member/{member}', [MemberListController::class, 'showMember'])->name('showMember');
+Route::get('/adminhomepage', [MemberListController::class, 'index'])->name('adminhomepage');
+Route::get('/member_list', [MemberListController::class, 'index'])->name('index');
+// Route::get('/add', [MemberListController::class, 'add'])->name('add');
+Route::post('/add', [MemberListController::class, 'addMember'])->name('addMember');
+Route::get('/member/{member}/update', [MemberListController::class, 'update'])->name('update');
+Route::put('/member/{member}/edit', [MemberListController::class, 'updateMember'])->name('updateMember');
+Route::delete('/member/{member}/delete', [MemberListController::class, 'deleteMember'])->name('deleteMember');
 //image upload
-Route::post('/upload-image', [AlbumListController::class, 'uploadImage'])->name('uploadImage');
+Route::post('/upload-image', [MemberListController::class, 'uploadImage'])->name('uploadImage');
 
 //announcement
 // Route::controller(AdminAnnouncementController::class)->group(function () {
@@ -124,7 +125,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/adminhomepage', [AlbumListController::class, 'index'])->name('adminhomepage');
+    Route::get('/adminhomepage', [MemberListController::class, 'index'])->name('adminhomepage');
 });
 
 require __DIR__ . '/auth.php';

@@ -1,4 +1,4 @@
-@extends('layout')
+{{-- @extends('layout')
 @section('content')
     @include('navbar')
         <div class="container mt-3">
@@ -38,4 +38,4 @@
                 </div>
               </div>
         </div>
-@endsection
+@endsection --}}

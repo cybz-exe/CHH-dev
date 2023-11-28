@@ -1,8 +1,8 @@
-@extends('layout')
+@extends('layouts.layout')
 @section('content')
-@include('navbar')
-<h1>this is the announcement page</h1>
-<div class="container">
+@include('layouts.navbar')
+<div class="container mt-4">
+  <h1 class="fw-bold pb-2">Announcements</h1>
     <form method="POST" action="{{ route('addadminannouncement') }}">
       @csrf
       @method('post')

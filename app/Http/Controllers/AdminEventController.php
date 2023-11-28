@@ -17,7 +17,7 @@ class AdminEventController extends Controller
             return response()->json($data);
         }
 
-        return view('adminevent');
+        return view('pages.admin.adminevent');
     }
 
     public function store(Request $request)

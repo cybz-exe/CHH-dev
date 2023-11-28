@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Album;
+use App\Models\Member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Generator as Faker;
 
@@ -10,7 +10,7 @@ use Faker\Generator as Faker;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Album>
  */
-class AlbumFactory extends Factory
+class MemberFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class AlbumFactory extends Factory
      * @return array<string, mixed>
      */
 
-    protected $model = Album::class;
+    protected $model = Member::class;
 
     public function definition(): array
     {
