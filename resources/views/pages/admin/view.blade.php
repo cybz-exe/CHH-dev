@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <p class="card-text d-flex flex-column">
                             {{-- <button type="button" class="btn btn-primary">Update Info</button> --}}
-                            <a href="{{ route('updateMember', ['member' => $member]) }}" class="btn btn-primary" role="button">Update Info</a>
+                            <a href="{{ route('update', ['member' => $member]) }}" class="btn btn-primary" role="button">Update Info</a>
                             <form method="POST" action="{{ route('deleteMember', ['member' => $member]) }}">
                                 @csrf
                                 @method('delete')

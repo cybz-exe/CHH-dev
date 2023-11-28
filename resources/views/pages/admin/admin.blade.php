@@ -5,6 +5,8 @@
   <form method="POST" action="{{ route('login') }}">
       @csrf
 
+    <h1 class="text-center text-3xl font-semibold mb-4 mt-2">CHH Admin Login</h1>
+
     <!-- Username -->
     <div class="mt-4">
         <x-input-label for="username" :value="__('Username')" />

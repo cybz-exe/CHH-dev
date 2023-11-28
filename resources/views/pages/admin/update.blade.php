@@ -72,7 +72,7 @@
                 <div class="row g-2">
                     <div class="col-md-4">
                         <label for="inputPassword4" class="form-label">Contact Number</label>
-                        <input type="number" class="form-control" id="inputPassword4" name="contact" value="{{ $member->contact }}">
+                        <input type="text" class="form-control" id="inputPassword4" name="contact" value="{{ $member->contact }}" pattern="^\d{11}$" title="Please enter 11 digits.">
                     </div>
             
                     <div class="col-md-4">
@@ -101,7 +101,7 @@
         
                     <div class="col-md-4">
                     <label for="inputPassword4" class="form-label">Contact Number</label>
-                    <input type="number" class="form-control" id="inputPassword4" name="emergency_contact" value="{{ $member->emergency_contact }}">
+                    <input type="text" class="form-control" id="inputPassword4" name="emergency_contact" value="{{ $member->emergency_contact }}" pattern="^\d{11}$" title="Please enter 11 digits.">
                     </div>
         
                     <div class="col-md-4">
